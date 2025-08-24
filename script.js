@@ -1,4 +1,4 @@
-import * as JSZip from 'jszip';
+import JSZip from 'jszip';
 
 const appNameInput = document.getElementById('appName');
 const packageNameInput = document.getElementById('packageName');
