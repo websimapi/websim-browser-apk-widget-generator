@@ -98,7 +98,7 @@ function generateAndroidManifest(packageName, widgetProviderName) {
 
 async function createApk(files) {
     logger('Creating APK structure...');
-    const zip = new JSZip();
+    const zip = JSZip();
 
     for (const file of files) {
         zip.file(file.path, file.content);
