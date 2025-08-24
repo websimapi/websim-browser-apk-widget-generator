@@ -1,4 +1,4 @@
-import JSZip from 'jszip';
+import * as JSZip from 'jszip';
 
 const appNameInput = document.getElementById('appName');
 const packageNameInput = document.getElementById('packageName');
@@ -14,6 +14,10 @@ const downloadContainer = document.getElementById('download-container');
 const downloadLink = document.getElementById('downloadLink');
 
 // --- Tweakable Default Values ---
+
+/* @tweakable The minimum Android SDK version for the generated APK. */
+const DEFAULT_MIN_SDK_VERSION = 21; // Android 5.0 Lollipop
+
 /* @tweakable Default widget layout XML */
 const DEFAULT_WIDGET_LAYOUT = `<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -70,6 +74,8 @@ function generateAndroidManifest(packageName, widgetProviderName) {
     return `<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="${packageName}">
+
+    <uses-sdk android:minSdkVersion="${DEFAULT_MIN_SDK_VERSION}" />
 
     <application
         android:allowBackup="true"
@@ -226,4 +232,3 @@ buildBtn.addEventListener('click', async () => {
         }, 1000);
     }
 });
-
