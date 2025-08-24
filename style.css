@@ -1,0 +1,138 @@
+:root {
+    --bg-color: #121212;
+    --surface-color: #1e1e1e;
+    --primary-color: #03dac6;
+    --on-surface-color: #e0e0e0;
+    --on-surface-secondary: #a0a0a0;
+    --error-color: #cf6679;
+    --border-color: #333;
+    --font-family: 'Roboto', sans-serif;
+    --font-family-mono: 'Inconsolata', monospace;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--on-surface-color);
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+#app {
+    width: 100%;
+    max-width: 800px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--on-surface-secondary);
+    font-size: 1.1rem;
+}
+
+.card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.card h2 {
+    margin-top: 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    color: var(--on-surface-color);
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--on-surface-secondary);
+    font-size: 0.8rem;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--on-surface-color);
+    font-family: var(--font-family-mono);
+    box-sizing: border-box;
+}
+
+input[type="file"] {
+    padding: 0.5rem;
+}
+
+button, .button {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.2s;
+}
+
+button:hover, .button:hover {
+    background-color: #018786;
+}
+
+.warning-box {
+    background-color: rgba(207, 102, 121, 0.1);
+    border: 1px solid var(--error-color);
+    color: var(--error-color);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+#log-container {
+    margin-top: 1.5rem;
+}
+
+#log {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 4px;
+    height: 200px;
+    overflow-y: auto;
+    font-family: var(--font-family-mono);
+    white-space: pre-wrap;
+    word-break: break-all;
+    font-size: 0.9rem;
+}
+

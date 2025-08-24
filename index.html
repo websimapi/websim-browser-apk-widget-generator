@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser APK Widget Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Inconsolata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Android Widget APK Generator</h1>
+            <p class="subtitle">Build, Align, & Sign APKs entirely in your browser. No data ever leaves your machine.</p>
+        </header>
+
+        <main>
+            <div class="warning-box">
+                <strong>Security Notice:</strong> Private keys are loaded into memory for the signing process and are discarded on page reload. Nothing is ever stored or transmitted.
+            </div>
+
+            <!-- Step 1: Project Settings -->
+            <section id="project-settings" class="card">
+                <h2>1. Project Settings</h2>
+                <div class="form-group">
+                    <label for="appName">App Name</label>
+                    <input type="text" id="appName" value="My Widget App">
+                </div>
+                <div class="form-group">
+                    <label for="packageName">Package Name</label>
+                    <input type="text" id="packageName" value="com.example.mywidget">
+                    <small>e.g., com.yourname.appname</small>
+                </div>
+                <div class="form-group">
+                    <label for="appIcon">App Icon (PNG)</label>
+                    <input type="file" id="appIcon" accept="image/png">
+                </div>
+            </section>
+
+            <!-- Step 2: Widget Configuration -->
+            <section id="widget-config" class="card">
+                <h2>2. Widget Configuration</h2>
+                <div class="form-group">
+                    <label for="widgetProviderName">Widget Provider Class Name</label>
+                    <input type="text" id="widgetProviderName" value="MyWidgetProvider">
+                    <small>A simple name for the widget provider class.</small>
+                </div>
+                <div class="form-group">
+                    <label for="widgetLayoutXml">Widget Layout (res/layout/widget_layout.xml)</label>
+                    <textarea id="widgetLayoutXml" rows="8"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="widgetInfoXml">Widget Info (res/xml/widget_info.xml)</label>
+                    <textarea id="widgetInfoXml" rows="8"></textarea>
+                </div>
+            </section>
+
+            <!-- Step 3: Signing Keys -->
+            <section id="signing-keys" class="card">
+                <h2>3. Signing Key</h2>
+                 <div class="form-group">
+                    <label for="privateKey">Private Key (PKCS#8 PEM)</label>
+                    <textarea id="privateKey" rows="6" placeholder="-----BEGIN PRIVATE KEY----- ... -----END PRIVATE KEY-----"></textarea>
+                    <small>Paste your private key. This is never stored.</small>
+                </div>
+                <div class="form-group">
+                    <label for="certificate">Certificate (PEM)</label>
+                    <textarea id="certificate" rows="6" placeholder="-----BEGIN CERTIFICATE----- ... -----END CERTIFICATE-----"></textarea>
+                    <small>Paste your public certificate.</small>
+                </div>
+            </section>
+            
+            <!-- Step 4: Build & Download -->
+            <section id="build-section" class="card">
+                <h2>4. Build & Download</h2>
+                <button id="buildBtn">Build APK</button>
+                <div id="log-container">
+                    <h3>Build Log</h3>
+                    <pre id="log"></pre>
+                </div>
+                <div id="download-container" style="display: none;">
+                    <h3>Build Complete!</h3>
+                    <p>Your APK is ready to download. Remember to enable "Install from unknown sources" on your Android device to sideload it.</p>
+                    <a id="downloadLink" class="button" download="widget.apk">Download Signed APK</a>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script type="importmap">
+    {
+      "imports": {
+        "jszip": "https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"
+      }
+    }
+    </script>
+    <script type="module" src="script.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
+
